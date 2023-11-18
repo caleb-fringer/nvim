@@ -13,7 +13,7 @@ function wincmd_keybind_factory(arg)
     }
 end
 
-for _, i in pairs({"h","j","k","l"}) do
+for _, i in pairs({"h","j","k","l", "H", "J", "K", "L"}) do
     table.insert(keybindings, wincmd_keybind_factory(i))
 end
 
