@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 keybindings = {
     { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
     { modes={"n","i"}, lhs="<leader>pv", cmd=vim.cmd.Ex },
+    { modes={"n","i"}, lhs="<C-s>", cmd=vim.cmd.write},
 }
 
 function wincmd_keybind_factory(arg)
@@ -13,7 +14,7 @@ function wincmd_keybind_factory(arg)
     }
 end
 
-for _, i in pairs({"h","j","k","l", "H", "J", "K", "L"}) do
+for _, i in pairs({"h","j","k","l", "H", "J", "K", "L", "s", "v", "n", "q"}) do
     table.insert(keybindings, wincmd_keybind_factory(i))
 end
 
