@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 keybindings = {
     { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
-    { modes={"n","i"}, lhs="<leader>pv", cmd=vim.cmd.Ex },
+    { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
     { modes={"n","i"}, lhs="<C-s>", cmd=vim.cmd.write},
 }
 
