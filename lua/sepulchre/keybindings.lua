@@ -14,7 +14,7 @@ function wincmd_keybind_factory(arg)
     }
 end
 
-for _, i in pairs({"h","j","k","l", "H", "J", "K", "L", "s", "v", "n", "q"}) do
+for _, i in pairs({"h","j","k","l", "H", "J", "K", "L", "s", "v", "n", "q", "c"}) do
     table.insert(keybindings, wincmd_keybind_factory(i))
 end
 
