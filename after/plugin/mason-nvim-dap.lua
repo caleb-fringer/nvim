@@ -1,3 +1,4 @@
+require('mason').setup()
 require('mason-nvim-dap').setup({
-    ensure_installed = { 'java-debug-adapter' },
+    ensure_installed = { 'javadbg', 'python', 'delve' },
 })
