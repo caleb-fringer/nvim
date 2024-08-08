@@ -3,9 +3,17 @@ local builtin = require('telescope.builtin')
 local extensions = telescope.extensions
 
 telescope.setup{
+    defaults = {
+        vimgrep_arguments = {
+            "rg",
+            "--hidden"
+        }
+    },
     extensions = {
         file_browser = {
-            hijack_netrw = true
+            path = "%:p:h:",
+            hidden = true,
+            hijack_netrw = true,
         }
     }
 }
