@@ -35,6 +35,11 @@ dap.listeners.before.launch.dapui_config = function()
     dapui.open()
 end
 
+--[[
+-- TODO: Currently, if I launch another thread and wait on its result while 
+-- debugging, the debug window closes. I want to prevent this behavior unless
+-- I've truly quit the program.
+--]]
 dap.listeners.before.event_terminated.dapui_config = function()
     dapui.close()
 end
