@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 keybindings = {
     { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
