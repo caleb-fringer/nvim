@@ -8,3 +8,9 @@ cmp.setup({
 	["<CR>"] = cmp.mapping.confirm({select = false}),
     })
 })
+
+cmp.setup.filetype({'lisp'}, {
+    sources = {
+        { name = 'vlime' }
+    }
+})
