@@ -8,5 +8,7 @@ cmp.event:on(
 
 local npairs = require('nvim-autopairs')
 -- Add rules for Lisp and Scheme programs
+-- Note: get_rule works for "'", but not for "`". To keep it consistent,
+-- use get_rules
 npairs.get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
 npairs.get_rules("`")[1].not_filetypes = { "scheme", "lisp" }
