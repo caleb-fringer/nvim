@@ -5,6 +5,8 @@ keybindings = {
     { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
     { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
     { modes={"n","i"}, lhs="<C-s>", cmd=vim.cmd.write},
+    -- Delete F1 keybinding as it conflicts with my Discord PTT key
+    { modes={"n", "v", "s", "o", "i", "c", "t"}, lhs="<F1>", cmd=function() end },
 }
 
 function wincmd_keybind_factory(arg)
@@ -22,4 +24,3 @@ end
 for _, bind in pairs(keybindings) do
     vim.keymap.set(bind.modes, bind.lhs, bind.cmd)
 end
-
