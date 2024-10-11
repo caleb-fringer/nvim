@@ -3,4 +3,3 @@ vim.g.nvlime_config = {
         enabled = true
     }
 }
-

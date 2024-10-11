@@ -2,22 +2,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 keybindings = {
-    { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
-    { modes="n", lhs="<leader>pv", cmd=vim.cmd.Ex },
-    { modes={"n","i"}, lhs="<C-s>", cmd=vim.cmd.write},
+    { modes = "n",                               lhs = "<leader>pv", cmd = vim.cmd.Ex },
+    { modes = "n",                               lhs = "<leader>pv", cmd = vim.cmd.Ex },
+    { modes = { "n", "i" },                      lhs = "<C-s>",    cmd = vim.cmd.write },
     -- Delete F1 keybinding as it conflicts with my Discord PTT key
-    { modes={"n", "v", "s", "o", "i", "c", "t"}, lhs="<F1>", cmd=function() end },
+    { modes = { "n", "v", "s", "o", "i", "c", "t" }, lhs = "<F1>", cmd = function() end },
 }
 
 function wincmd_keybind_factory(arg)
     return {
-	modes="n",
-	lhs="<leader>w" .. arg,
-	cmd=function() vim.cmd.wincmd(arg) end
+        modes = "n",
+        lhs = "<leader>w" .. arg,
+        cmd = function() vim.cmd.wincmd(arg) end
     }
 end
 
-for _, i in pairs({"h","j","k","l", "H", "J", "K", "L", "s", "v", "n", "q", "c"}) do
+for _, i in pairs({ "h", "j", "k", "l", "H", "J", "K", "L", "s", "v", "n", "q", "c" }) do
     table.insert(keybindings, wincmd_keybind_factory(i))
 end
 
