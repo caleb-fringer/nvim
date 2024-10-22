@@ -11,6 +11,6 @@ cmp.setup({
 
 cmp.setup.filetype({ 'lisp' }, {
     sources = {
-        { name = 'vlime' }
+        { name = 'nvlime' }
     }
 })
