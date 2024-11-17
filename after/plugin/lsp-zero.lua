@@ -7,9 +7,20 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.buffer_autoformat()
 end)
 
+
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "clangd", "ts_ls", "lua_ls", "pylsp", "jdtls", "volar" },
+    ensure_installed = {
+        "clangd",
+        "ts_ls",
+        "lua_ls",
+        "pylsp",
+        "jdtls",
+        "volar",
+        "fennel_language_server",
+        "clojure_lsp"
+    },
     handlers = {
         lsp_zero.default_setup,
         ts_ls = function()
