@@ -13,7 +13,7 @@ return {
         -- Optional cmp-conjure integration
         dependencies = {
             "PaterJason/cmp-conjure",
-            "Olical/aniseed"
+            "Olical/nfnl"
         },
     },
     {
