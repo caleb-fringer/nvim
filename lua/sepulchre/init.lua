@@ -1,5 +1,6 @@
 require("sepulchre.keybindings")
 require("sepulchre.lazy")
+require("sepulchre.filetype")
 
 -- Since gofmt converts spaces to tabs, setting this for consistency
 vim.opt.tabstop = 4
