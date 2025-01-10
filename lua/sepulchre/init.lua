@@ -10,4 +10,4 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme catppuccin-mocha")
