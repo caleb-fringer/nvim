@@ -19,7 +19,8 @@ require('mason-lspconfig').setup({
         "jdtls",
         "volar",
         "fennel_language_server",
-        "clojure_lsp"
+        "clojure_lsp",
+        "gopls"
     },
     handlers = {
         lsp_zero.default_setup,
