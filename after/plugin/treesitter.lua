@@ -13,7 +13,8 @@ require 'nvim-treesitter.configs'.setup {
         "vimdoc",
         "query",
         "fennel",
-        "clojure"
+        "clojure",
+        "http"
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
