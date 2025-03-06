@@ -1,6 +1,9 @@
 local cmp = require("cmp")
 
 cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+    },
     mapping = cmp.mapping.preset.insert({
         ['<Tab>'] = cmp.mapping(function(fallback)
             local col = vim.fn.col('.') - 1
