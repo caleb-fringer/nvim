@@ -47,3 +47,10 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
+
+-- Register command for closing Dapui when it inevitablty gets stuck
+vim.api.nvim_create_user_command('Dapq', function()
+    dapui.close()
+end, {})
+
+vim.keymap.set('n', '<Leader>dq', dapui.close, { desc = 'dap-ui: Close all debug windows'})
