@@ -1,6 +1,6 @@
 vim.filetype.add({
     extension = {
-        uml = "uml"
+        uml = "uml",
         lilypond = "ly"
     }
 })
