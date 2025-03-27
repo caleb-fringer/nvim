@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         local outfile = e.file:gsub(".ly", ".pdf")
         local result = vim.system({ "lilypond", "-o", outfile, e.file }):wait()
         if result.code ~= 0 then
-            print("Error engraving score: " .. result.stderr)
+            print("Error engraving score. Please check :messages")
         else
             print("Score saved to " .. outfile)
         end
