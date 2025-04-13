@@ -16,7 +16,17 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
     local opts = {buffer = event.buf}
+
+    if client and client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = opts.buffer,
+            callback = function()
+                vim.lsp.buf.format({ bufnr = opts.buffer})
+            end
+        })
+    end
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
