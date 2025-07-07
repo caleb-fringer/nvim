@@ -9,7 +9,8 @@ require('mason-lspconfig').setup({
         "volar",
         "fennel_language_server",
         "clojure_lsp",
-        "gopls"
+        "gopls",
+        "ansiblels"
     },
 
     handlers = {
