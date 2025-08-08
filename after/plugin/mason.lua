@@ -19,11 +19,8 @@ require('mason-lspconfig').setup({
             require('lspconfig')[server_name].setup({})
         end,
         ts_ls = function()
-            local vue_typescript_plugin = require('mason-registry')
-                .get_package('vue-language-server')
-                :get_install_path()
-                .. '/node_modules/@vue/language-server'
-                .. '/node_modules/@vue/typescript-plugin'
+            local vue_typescript_plugin = vim.fn.expand '$MASON/packages' ..
+            '/vue-language-server' .. '/node_modules/@vue/language-server'
 
             require('lspconfig').ts_ls.setup({
                 init_options = {
