@@ -1,8 +1,7 @@
-require('mason').setup({})
+require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
         "clangd",
-        "ts_ls",
         "lua_ls",
         "pylsp",
         "jdtls",
@@ -11,37 +10,42 @@ require('mason-lspconfig').setup({
         "clojure_lsp",
         "gopls",
         "ansiblels",
-        "tailwindcss"
+        "tailwindcss",
+        "vtsls",
     },
-
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-        ts_ls = function()
-            local vue_typescript_plugin = vim.fn.expand '$MASON/packages' ..
-            '/vue-language-server' .. '/node_modules/@vue/language-server'
-
-            require('lspconfig').ts_ls.setup({
-                init_options = {
-                    plugins = {
-                        {
-                            name = "@vue/typescript-plugin",
-                            location = vue_typescript_plugin,
-                            languages = { 'javascript', 'typescript', 'vue' }
-                        },
-                    }
-                },
-                filetypes = {
-                    'javascript',
-                    'javascriptreact',
-                    'javascript.jsx',
-                    'typescript',
-                    'typescriptreact',
-                    'typescript.tsx',
-                    'vue',
-                },
-            })
-        end
-    },
+    automatic_enable = {
+        exclude = {
+            "vue_ls",
+            "vtsls",
+        }
+    }
 })
+
+-- Vue + TS LSP setup.
+local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+    '/vue-language-server' .. '/node_modules/@vue/language-server'
+
+local tsserver_filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+
+local vue_plugin = {
+    name = '@vue/typescript-plugin',
+    location = vue_language_server_path,
+    languages = { 'vue' },
+    configNamespace = 'typescript',
+}
+
+local vtsls_config = {
+    settings = {
+        vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    vue_plugin,
+                }
+            }
+        }
+    },
+    filetypes = tsserver_filetypes,
+}
+
+vim.lsp.config('vtsls', vtsls_config)
+vim.lsp.enable({ 'vue_ls', 'vtsls' })
