@@ -48,4 +48,5 @@ local vtsls_config = {
 }
 
 vim.lsp.config('vtsls', vtsls_config)
-vim.lsp.enable({ 'vue_ls', 'vtsls' })
+-- MUST load vtsls first, otherwise both will try to format on save.
+vim.lsp.enable({ 'vtsls', 'vue_ls' })
