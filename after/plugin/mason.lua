@@ -10,7 +10,8 @@ require('mason-lspconfig').setup({
         "fennel_language_server",
         "clojure_lsp",
         "gopls",
-        "ansiblels"
+        "ansiblels",
+        "tailwindcss"
     },
 
     handlers = {
