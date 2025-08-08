@@ -6,7 +6,7 @@ require('mason-lspconfig').setup({
         "lua_ls",
         "pylsp",
         "jdtls",
-        "volar",
+        "vue_ls",
         "fennel_language_server",
         "clojure_lsp",
         "gopls",
