@@ -5,6 +5,6 @@
 ~~- Add proper filetree plugin~~
 - Add terminal/task running plugin
 ~~- Brace/bracket completion~~
-- Implement opening language/API documentation in web browser (Go stdlib, for
-  example)
+~~- Implement opening language/API documentation in web browser (Go stdlib, for
+  example)~~ (Can already do this with gx)
 - Pull latest config on launch, handling merge conflicts as needed.
