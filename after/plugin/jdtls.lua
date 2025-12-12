@@ -3,13 +3,13 @@ local function get_pkg_path(pkg)
 end
 
 local function setup()
-    vim.opt.expandtab = false
-    vim.opt.shiftwidth = 4
-    vim.opt.tabstop = 4
-    vim.opt.softtabstop = 4
-    vim.cmd.set("list")
-    vim.api.nvim_command("filetype indent off")
-    vim.api.smartindent = false
+    -- vim.opt.expandtab = false
+    -- vim.opt.shiftwidth = 4
+    -- vim.opt.tabstop = 4
+    -- vim.opt.softtabstop = 4
+    -- vim.cmd.set("list")
+    -- vim.api.nvim_command("filetype indent off")
+    -- vim.api.smartindent = false
 
     -- attach lsp keymaps for nvim-jdtls
     local opts = { noremap = true, silent = true }
