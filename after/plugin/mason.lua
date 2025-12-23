@@ -12,6 +12,7 @@ require('mason-lspconfig').setup({
         "ansiblels",
         "tailwindcss",
         "vtsls",
+        "elixirls"
     },
     automatic_enable = {
         exclude = {
