@@ -23,6 +23,7 @@ require('mason-lspconfig').setup({
     }
 })
 
+
 -- Vue + TS LSP setup.
 local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
     '/vue-language-server' .. '/node_modules/@vue/language-server'
@@ -52,3 +53,25 @@ local vtsls_config = {
 vim.lsp.config('vtsls', vtsls_config)
 -- MUST load vtsls first, otherwise both will try to format on save.
 vim.lsp.enable({ 'vtsls', 'vue_ls' })
+
+vim.lsp.config('hls', {
+    filetypes = { 'haskell', 'lhaskell' },
+
+    on_attach = function(client, bufnr)
+        local is_literate = vim.bo[bufnr].filetype == 'lhaskell'
+
+        if is_literate then
+            -- Turn off formatting for literate haskell because none of the
+            -- hls formatters support it.
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentFormattingProvider = false
+        end
+    end,
+
+    settings = {
+        haskell = {
+            formattingProvider = 'ormolu',
+            cabalFormattingProvider = 'cabal-gild',
+        }
+    }
+})
