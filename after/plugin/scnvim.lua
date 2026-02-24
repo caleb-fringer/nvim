@@ -23,6 +23,8 @@ scnvim.setup({
         -- Requires Alacritty config to send <C-.>
         ['<C-.>'] = map('sclang.hard_stop', { 'n', 'x', 'i' }),
         ['<leader>cs'] = map('sclang.start'),
+        ['<leader>cS'] = map('sclang.stop'),
+        ['<leader>cr'] = map('sclang.reboot'),
         ['<leader>sk'] = map('sclang.recompile'),
         ['<F1>'] = map_expr('s.boot'),
         ['<F2>'] = map_expr('s.meter'),
