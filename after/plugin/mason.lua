@@ -75,3 +75,8 @@ vim.lsp.config('hls', {
         }
     }
 })
+
+vim.lsp.config('clangd', {
+    -- Add gcc-arm toolchain as queryable drivers so Clangd can find its headers by querying.
+    cmd = { "clangd", '--query-driver="/home/caleb/.local/lib/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-*"' }
+})
