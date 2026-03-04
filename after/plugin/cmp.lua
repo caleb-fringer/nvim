@@ -9,6 +9,7 @@ cmp.setup({
     },
     sources = {
         { name = 'nvim_lsp' },
+        { name = 'buffer' },
     },
     mapping = {
         ['<CR>'] = cmp.mapping({
@@ -55,6 +56,14 @@ cmp.setup({
 
 cmp.setup.filetype({ 'lisp' }, {
     sources = {
-        { name = 'nvlime' }
+        { name = 'nvlime' },
+        { name = 'buffer' },
+    }
+})
+
+cmp.setup.filetype('tex', {
+    sources = {
+        { name = 'vimtex' },
+        { name = 'buffer' },
     }
 })
