@@ -13,7 +13,8 @@ require('mason-lspconfig').setup({
         "tailwindcss",
         "vtsls",
         "elixirls",
-        "hls"
+        "hls",
+        "texlab",
     },
     automatic_enable = {
         exclude = {
