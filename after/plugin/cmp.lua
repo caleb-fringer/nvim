@@ -1,7 +1,38 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
+-- Require the compare module to load the default sorting behaviors
+local compare = require("cmp.config.compare")
 
 cmp.setup({
+    -- 1. Keep this to prevent the suggestion from auto-highlighting
+    preselect = cmp.PreselectMode.None,
+
+    -- 2. Add custom sorting to force the suggestion to Index 1
+    sorting = {
+        priority_weight = 2,
+        comparators = {
+            -- Custom comparator: checks if the LSP flagged an item as 'preselect'
+            function(entry1, entry2)
+                local preselect1 = entry1:get_completion_item().preselect or false
+                local preselect2 = entry2:get_completion_item().preselect or false
+                if preselect1 and not preselect2 then return true end
+                if not preselect1 and preselect2 then return false end
+                -- If neither or both are preselected, fall through to default sorting
+                return nil
+            end,
+            -- Standard nvim-cmp default comparators
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.locality,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
+        },
+    },
+
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
