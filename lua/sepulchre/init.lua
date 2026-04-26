@@ -1,6 +1,7 @@
 require("sepulchre.keybindings")
 require("sepulchre.lazy")
 require("sepulchre.filetype")
+require("sepulchre.imp_lsp")
 
 -- Since gofmt converts spaces to tabs, setting this for consistency
 vim.opt.tabstop = 4
@@ -19,3 +20,6 @@ vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
 end)
 vim.cmd("colorscheme catppuccin-mocha")
+
+-- Enable custom LSP
+vim.lsp.enable('imp_lsp')
