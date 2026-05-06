@@ -42,3 +42,14 @@ require 'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false,
     },
 }
+
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'TSUpdate',
+    callback = function()
+        require('nvim-treesitter.parsers').imp = {
+            install_info = {
+                url = 'https://github.com/caleb-fringer/tree-sitter-imp',
+            },
+        }
+    end
+})
