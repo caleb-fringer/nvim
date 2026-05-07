@@ -23,3 +23,9 @@ vim.cmd("colorscheme catppuccin-mocha")
 
 -- Enable custom LSP
 vim.lsp.enable('imp_lsp')
+
+-- Enable vim.treesitter on each filetype supported by nvim-treesitter
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { '<filetype>' },
+    callback = function() vim.treesitter.start() end,
+})
