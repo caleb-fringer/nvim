@@ -1,20 +1,21 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
-        "clangd",
-        "lua_ls",
-        "ty",
-        "jdtls",
-        "vue_ls",
-        "fennel_language_server",
-        "clojure_lsp",
-        "gopls",
         "ansiblels",
-        "tailwindcss",
-        "vtsls",
+        "clangd",
+        "clojure_lsp",
         "elixirls",
+        "fennel_language_server",
+        "gopls",
         "hls",
+        "jdtls",
+        "lua_ls",
+        "rust_analyzer",
+        "tailwindcss",
         "texlab",
+        "ty",
+        "vtsls",
+        "vue_ls",
     },
     automatic_enable = {
         exclude = {
@@ -80,4 +81,7 @@ vim.lsp.config('hls', {
 vim.lsp.config('clangd', {
     -- Add gcc-arm toolchain as queryable drivers so Clangd can find its headers by querying.
     cmd = { "clangd", '--query-driver="/home/caleb/.local/lib/gcc-arm-none-eabi-10-2020-q4-major/bin/arm-none-eabi-*"' }
+})
+vim.lsp.config('clojure-lsp', {
+    cmd = { "java", "-jar", "/home/caleb/.local/bin/clojure-lsp" }
 })
