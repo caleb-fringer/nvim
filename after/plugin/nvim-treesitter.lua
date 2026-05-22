@@ -1,10 +1,4 @@
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { '<filetype>' },
-    callback = function() vim.treesitter.start() end,
-})
-
-
-require('nvim-treesitter').install({
+local parsers = {
     'awk',
     'bash',
     'bibtex',
@@ -49,4 +43,15 @@ require('nvim-treesitter').install({
     'xml',
     'yaml',
     'zsh'
-})
+}
+
+require('nvim-treesitter').install(parsers)
+
+for _, lang in ipairs(parsers) do
+    vim.api.nvim_create_autocmd('FileType', {
+        pattern = { lang },
+        callback = function(event)
+            vim.treesitter.start(event.buf, lang)
+        end,
+    })
+end
