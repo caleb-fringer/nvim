@@ -52,6 +52,7 @@ for _, lang in ipairs(parsers) do
         pattern = { lang },
         callback = function(event)
             vim.treesitter.start(event.buf, lang)
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end,
     })
 end
