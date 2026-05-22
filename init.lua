@@ -1,5 +1,4 @@
-local configrepo = "https://github.com/caleb-fringer/nvim"
-local cmd = { "git", "pull", configrepo }
+local cmd = { "git", "pull", vim.stdpath("data") }
 local ok, sys_obj = pcall(vim.system, cmd)
 if not ok then
     local msg = table.concat(cmd, " ")
