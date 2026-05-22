@@ -1,4 +1,4 @@
-local cmd = { "git", "pull", vim.stdpath("data") }
+local cmd = { "git", "pull", vim.fn.stdpath("config") }
 local ok, sys_obj = pcall(vim.system, cmd)
 if not ok then
     local msg = table.concat(cmd, " ")
