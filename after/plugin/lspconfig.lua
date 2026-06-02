@@ -43,3 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
     end,
 })
+
+vim.api.nvim_create_user_command('LspLog',
+    'tabnew ' .. vim.lsp.log.get_filename(),
+    { desc = "Open LSP log" })
