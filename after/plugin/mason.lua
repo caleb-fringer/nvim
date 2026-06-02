@@ -2,6 +2,7 @@ require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
         "ansiblels",
+        "astro",
         "clangd",
         "clojure_lsp",
         "elixirls",

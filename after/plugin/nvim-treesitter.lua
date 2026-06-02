@@ -1,4 +1,5 @@
 local parsers = {
+    'astro',
     'awk',
     'bash',
     'bibtex',
