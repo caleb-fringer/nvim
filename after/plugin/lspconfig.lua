@@ -47,3 +47,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.api.nvim_create_user_command('LspLog',
     'tabnew ' .. vim.lsp.log.get_filename(),
     { desc = "Open LSP log" })
+
+vim.api.nvim_create_user_command('Lsp',
+    'checkhealth vim.lsp',
+    { desc = "Alias for `:checkhealth vim.lsp`" })
