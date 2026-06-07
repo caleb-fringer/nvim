@@ -5,7 +5,7 @@ require('mason-lspconfig').setup({
         "astro",
         "clangd",
         "clojure_lsp",
-        "elixirls",
+        "expert",
         "fennel_language_server",
         "gopls",
         "hls",
