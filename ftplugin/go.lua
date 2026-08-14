@@ -1,4 +1,4 @@
-vim.o.textwidth = 0
+vim.o.textwidth = 80
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",
