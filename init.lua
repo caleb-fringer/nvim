@@ -20,4 +20,3 @@ if not pcall(vim.system, cmd, callback) then
 end
 
 require("sepulchre")
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
