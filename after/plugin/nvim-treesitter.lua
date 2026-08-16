@@ -49,12 +49,17 @@ local parsers = {
 
 require('nvim-treesitter').install(parsers)
 
+
 for _, lang in ipairs(parsers) do
     vim.api.nvim_create_autocmd('FileType', {
         pattern = { lang },
         callback = function(event)
             vim.treesitter.start(event.buf, lang)
-            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+            -- Only enable indents for languages that support it.
+            if vim.treesitter.query.get(lang, "indents") then
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end
         end,
     })
 end
