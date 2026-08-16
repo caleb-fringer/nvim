@@ -11,6 +11,7 @@ local parsers = {
     'dockerfile',
     'elixir',
     'erlang',
+    'fsharp',
     'gitignore',
     'go',
     'gomod',
